@@ -2,11 +2,9 @@
   import "../app.css";
 </script>
 
-<h1 class="text-center font-bold text-3xl text-fuchsia-900 my-10">Ample</h1>
-<nav class="flex justify-evenly w-full">
-  <a href="/">Notes</a>
-
-  <a href="/todo">Todo</a>
+<nav class="grid grid-flow-col justify-evenly my-4">
+  <a class="text-4xl font-bold" href="/">📝</a>
+  <a class="text-4xl font-bold" href="/todo">✔️</a>
 </nav>
 <br />
 <br />

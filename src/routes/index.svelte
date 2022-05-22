@@ -1,6 +1,5 @@
 <script>
   // @ts-nocheck
-
   import { Deta } from "deta";
   import { onMount } from "svelte/internal";
   const deta = Deta(import.meta.env.VITE_DETA_KEY);
@@ -41,14 +40,15 @@
   <br />
   <button on:click={addNote}>➕</button>
   <br />
+  <table>
+    {#each all_notes as note}
+      <tr
+        ><td> {note["note"]}</td>
+        <td><button on:click={() => deleteNote(note["key"])}>❌</button>
+          </td>
+      </tr>
+      <br />
 
-  {#each all_notes as note}
-    <div class="flex justify-center self-start">
-      {note["note"]} &nbsp;<button on:click={() => deleteNote(note["key"])}
-        >❌</button
-      >
-    </div>
-
-    <br />
-  {/each}
+    {/each}
+  </table>
 </div>
