@@ -49,7 +49,7 @@
 </script>
 
 <svelte:head><title>Todos</title></svelte:head>
-<div class="grid grid-flow-row justify-items-center">
+<div class="flex flex-col">
   <textarea class="border-4 border-sky-500" bind:value={input} />
   <br />
   <input
@@ -58,6 +58,7 @@
     placeholder="Due Date"
     bind:value={date}
   />
+  <br/>
   <button on:click={addTodo}>➕</button>
   <br />
   <table>
@@ -65,7 +66,9 @@
       <tr>
         <td class="text-2xl">{todo["todo"]}</td>
         <td class="text-red-600	text-2xl">{todo["date"]}</td>
-        <td class="text-2xl"><button on:click={() => completeTodo(todo["key"])}>✔</button></td>
+        <td class="text-2xl"
+          ><button on:click={() => completeTodo(todo["key"])}>✔</button></td
+        >
       </tr>
       <br />
     {/each}

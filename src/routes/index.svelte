@@ -36,7 +36,7 @@
 </script>
 
 <svelte:head><title>Notes</title></svelte:head>
-<div class="grid grid-flow-row justify-items-center">
+<div class="flex flex-col">
   <textarea class="border-4 border-sky-500" bind:value={input} />
   <br />
   <button on:click={addNote}>➕</button>
@@ -45,7 +45,9 @@
     {#each all_notes as note}
       <tr
         ><td class="text-2xl"> {note["note"]}</td>
-        <td class="text-2xl"><button on:click={() => deleteNote(note["key"])}>❌</button> </td>
+        <td class="text-2xl"
+          ><button on:click={() => deleteNote(note["key"])}>❌</button>
+        </td>
       </tr>
       <br />
     {/each}
