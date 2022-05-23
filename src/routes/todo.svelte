@@ -9,13 +9,24 @@
    */
   let all_todos = [];
   let input = "";
+  let date = "";
 
-  async function addTodo() {}
+  async function addTodo() {
+    const id = 99999999999999 - Date.now();
+    const res = await todos_db.insert(
+      { todo: input, date: date },
+      id.toString()
+    );
+    getAllTodos();
+  }
 
   /**
    * @param {any} key
    */
-  async function deleteTodo(key) {}
+  async function completeTodo(key) {
+    const res = await todos_db.delete(key);
+    getAllTodos();
+  }
 
   async function getAllTodos() {
     const result = await todos_db.fetch();
@@ -32,6 +43,12 @@
 <div class="grid grid-flow-row justify-items-center">
   <textarea class="border-4 border-sky-500" bind:value={input} />
   <br />
+  <input
+    class="border-2 border-sky-500"
+    type="date"
+    placeholder="Due Date"
+    bind:value={date}
+  />
   <button on:click={addTodo}>➕</button>
   <br />
   <table>
@@ -39,8 +56,7 @@
       <tr>
         <td>{todo["todo"]}</td>
         <td class="text-red-600	">{todo["date"]}</td>
-        <td><button on:click={() => deleteTodo(todo["key"])}>✔</button></td>
-
+        <td><button on:click={() => completeTodo(todo["key"])}>✔</button></td>
       </tr>
       <br />
     {/each}
