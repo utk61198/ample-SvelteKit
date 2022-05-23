@@ -26,6 +26,8 @@
   async function completeTodo(key) {
     const res = await todos_db.delete(key);
     getAllTodos();
+    date = "";
+    input = "";
   }
 
   async function getAllTodos() {

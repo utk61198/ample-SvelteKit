@@ -20,6 +20,7 @@
     const id = 99999999999999 - Date.now();
     const res = await notes_db.insert({ note: input }, id.toString());
     getAllNotes();
+    input=""
   };
 
   const deleteNote = async (key) => {
