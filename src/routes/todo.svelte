@@ -33,7 +33,14 @@
   async function getAllTodos() {
     const result = await todos_db.fetch();
     const data = await result.items;
-    all_todos = await data;
+    const temp = await data;
+    // @ts-ignore
+    temp.sort(function (a, b) {
+      // @ts-ignore
+      if (a.date > b.data) return 1;
+      else return -1;
+    });
+    all_todos = temp;
   }
 
   onMount(async () => {

@@ -20,7 +20,7 @@
     const id = 99999999999999 - Date.now();
     const res = await notes_db.insert({ note: input }, id.toString());
     getAllNotes();
-    input=""
+    input = "";
   };
 
   const deleteNote = async (key) => {
@@ -45,11 +45,9 @@
     {#each all_notes as note}
       <tr
         ><td> {note["note"]}</td>
-        <td><button on:click={() => deleteNote(note["key"])}>❌</button>
-          </td>
+        <td><button on:click={() => deleteNote(note["key"])}>❌</button> </td>
       </tr>
       <br />
-
     {/each}
   </table>
 </div>
