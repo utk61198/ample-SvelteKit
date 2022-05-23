@@ -63,9 +63,9 @@
   <table>
     {#each all_todos as todo}
       <tr>
-        <td>{todo["todo"]}</td>
-        <td class="text-red-600	">{todo["date"]}</td>
-        <td><button on:click={() => completeTodo(todo["key"])}>✔</button></td>
+        <td class="text-2xl">{todo["todo"]}</td>
+        <td class="text-red-600	text-2xl">{todo["date"]}</td>
+        <td class="text-2xl"><button on:click={() => completeTodo(todo["key"])}>✔</button></td>
       </tr>
       <br />
     {/each}

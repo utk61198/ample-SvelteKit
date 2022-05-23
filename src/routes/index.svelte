@@ -44,8 +44,8 @@
   <table>
     {#each all_notes as note}
       <tr
-        ><td> {note["note"]}</td>
-        <td><button on:click={() => deleteNote(note["key"])}>❌</button> </td>
+        ><td class="text-2xl"> {note["note"]}</td>
+        <td class="text-2xl"><button on:click={() => deleteNote(note["key"])}>❌</button> </td>
       </tr>
       <br />
     {/each}
